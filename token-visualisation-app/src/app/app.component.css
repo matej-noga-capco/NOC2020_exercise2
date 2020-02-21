@@ -18,6 +18,21 @@
   color: white;
 }
 
+.send-get-button {
+  margin-bottom: 3rem;
+}
+
+.send-get-button button {
+  margin-top: 1rem;
+}
+
+#datetime {
+  border: 0px;
+  border-bottom: 1px solid;
+  font-size: 16px;
+  color: gray;
+}
+
 #hijack-token-button-box {
   display: flex;
   align-items: center;

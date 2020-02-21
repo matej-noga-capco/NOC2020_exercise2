@@ -4,18 +4,18 @@
     <h3>Send POST request</h3>
     <form [formGroup]="postForm" class="post-form">
       <div>
-        <mat-form-field>
+        <mat-form-field style="width: 18rem;">
           <input [(ngModel)]="requestData.issuer" [ngModelOptions]="{standalone: true}" matInput placeholder="Issuer">
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field>
+        <mat-form-field style="width: 18rem;">
           <input [(ngModel)]="requestData.subject" [ngModelOptions]="{standalone: true}" matInput placeholder="Subject">
         </mat-form-field>
       </div>
       <div>
-        <input [(ngModel)]="requestData.datetime" [ngModelOptions]="{standalone: true}" id="meeting-time"
-               min="1900-01-01T00:00:00" name="meeting-time"
+        <input style="width: 18rem;" [(ngModel)]="requestData.datetime" [ngModelOptions]="{standalone: true}" id="datetime"
+               min="1900-01-01T00:00:00" name="datetime"
                placeholder="Datetime" step="1" type="datetime-local">
       </div>
       <div>
@@ -50,7 +50,7 @@
     </form>
     <hr/>
     <h3>Send GET request</h3>
-    <div>
+    <div class="send-get-button">
       <button (click)="sendGetRequest($event)" class="submit-button" mat-flat-button>Send</button>
     </div>
   </div>
