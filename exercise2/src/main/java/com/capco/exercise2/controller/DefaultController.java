@@ -16,7 +16,7 @@ public class DefaultController {
 
     @PostMapping("/token")
     public String createToken(@RequestBody JwtParametersDto jwtParametersDto) {
-        return jwtService.createJwtToken(jwtParametersDto);
+        return "{\"token\": \"" + jwtService.createJwtToken(jwtParametersDto) + "\"}";
     }
 
     @GetMapping("/keycloak-token")

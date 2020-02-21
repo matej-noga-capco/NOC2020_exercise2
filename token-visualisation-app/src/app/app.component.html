@@ -14,7 +14,7 @@
         </mat-form-field>
       </div>
       <div>
-        <input style="width: 18rem;" [(ngModel)]="requestData.datetime" [ngModelOptions]="{standalone: true}" id="datetime"
+        <input style="width: 18rem;" [(ngModel)]="requestData.expiration" [ngModelOptions]="{standalone: true}" id="datetime"
                min="1900-01-01T00:00:00" name="datetime"
                placeholder="Datetime" step="1" type="datetime-local">
       </div>
@@ -22,13 +22,13 @@
         <h5>Key - value list</h5>
       </div>
       <div class="form-standard" fxLayout="column" fxflex="100%">
-        <div *ngFor="let setting of postForm.controls.config.controls; let i = index;" formArrayName="config">
-          <div [formGroupName]="i" fxFlex="100%" fxLayout="column">
+        <div *ngFor="let setting of postForm.controls.claims.controls; let claimIndex = index;" formArrayName="claims">
+          <div [formGroupName]="claimIndex" fxFlex="100%" fxLayout="column">
             <mat-form-field class="form-input">
-              <input formControlName="key{{i}}" matInput maxlength="255" name="key" placeholder="Key">
+              <input formControlName="key{{claimIndex}}" matInput maxlength="255" name="key" placeholder="Key">
             </mat-form-field>
             <mat-form-field class="form-input">
-              <input formControlName="value{{i}}" matInput maxlength="255" name="value" placeholder="Value">
+              <input formControlName="value{{claimIndex}}" matInput maxlength="255" name="value" placeholder="Value">
             </mat-form-field>
           </div>
         </div>

@@ -2,6 +2,6 @@
 export class RequestTokenDto {
   issuer: any = '';
   subject: any = '';
-  datetime: any = '';
-  keyValuePairs: any = [];
+  expiration: any = '';
+  claims: any;
 }
