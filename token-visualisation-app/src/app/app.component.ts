@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
-import {ResponseTokenDto} from './_dto/ResponseTokenDto';
+import {HttpClient} from '@angular/common/http';
+import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 import {RequestTokenDto} from './_dto/RequestTokenDto';
 
 @Component({
@@ -39,15 +38,16 @@ export class AppComponent {
     this.prepareClaims();
 
     this.http.post(this.backendUrl + '/token', this.requestData, {
-      headers: {'Content-Type': 'application/json'}
-    }).subscribe((res: ResponseTokenDto) => {
-      this.postRequestToken = res.token;
+      headers: {'Content-Type': 'application/json'}, responseType: 'text'
+    }).subscribe((res: string) => {
+      this.postRequestToken = res;
     });
   }
 
   sendGetRequest(event: Event) {
-    this.http.get(this.backendUrl + '/keycloak-token').subscribe((res: ResponseTokenDto) => {
-      this.getRequestToken = res.token;
+    this.http.get(this.backendUrl + '/keycloak-token', {responseType: 'text'}).
+    subscribe((res: string) => {
+      this.getRequestToken = res;
     });
   }
 
