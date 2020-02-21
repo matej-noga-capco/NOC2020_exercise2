@@ -1,0 +1,40 @@
+.page-content-wrapper {
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+#page-content {
+  padding-bottom: 2.5rem;
+  padding-left: 2rem;
+  padding-top: 2rem;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.add-row-button {
+  background-color: black;
+  color: white;
+}
+
+#hijack-token-button-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.submit-button {
+  margin-top: 2rem;
+  background-color: #8f0000;
+  color: white;
+}
+
+.post-form {
+  margin-bottom: 2rem;
+}
+
+.token-box {
+  width: 20rem;
+}
