@@ -44,12 +44,22 @@
           </div>
         </mat-card-content>
       </div>
+      <ng-container *ngIf="postRequestToken !== undefined && postRequestToken.length > 0">
+        <div class="received-token-box">
+          Received token: <strong>{{postRequestToken}}</strong>
+        </div>
+      </ng-container>
       <div>
         <button (click)="sendPostRequest($event)" class="submit-button" mat-flat-button>Submit</button>
       </div>
     </form>
     <hr/>
     <h3>Send GET request</h3>
+    <ng-container *ngIf="getRequestToken !== undefined && getRequestToken.length > 0">
+      <div class="received-token-box">
+        Received token: <strong>{{getRequestToken}}</strong>
+      </div>
+    </ng-container>
     <div class="send-get-button">
       <button (click)="sendGetRequest($event)" class="submit-button" mat-flat-button>Send</button>
     </div>

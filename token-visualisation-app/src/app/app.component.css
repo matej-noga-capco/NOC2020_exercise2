@@ -2,6 +2,11 @@
   padding: 1rem 2rem 1rem 2rem;
 }
 
+.received-token-box {
+  margin-top: 2rem;
+  color: #8f0000;
+}
+
 #page-content {
   padding-bottom: 2.5rem;
   padding-left: 2rem;

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {ResponseTokenDto} from './_dto/ResponseTokenDto';
+import {RequestTokenDto} from './_dto/RequestTokenDto';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +12,9 @@ import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
 export class AppComponent {
 
   title = 'token-visualisation-app';
-  backendUrl = 'http://localhost:4200/';
-  token = '';
+  backendUrl = 'http://localhost:8080/';
+  getRequestToken = '';
+  postRequestToken = '';
 
   i = 0;
   postForm: FormGroup;
@@ -33,7 +36,6 @@ export class AppComponent {
   }
 
   sendPostRequest(event: Event) {
-    debugger;
     this.requestData.keyValuePairs = (this.postForm.get('config') as FormArray).value;
     this.http.post(this.backendUrl, JSON.stringify(this.requestData)).toPromise().then((res: Response) => {
       alert(JSON.stringify(res.json()));
@@ -41,15 +43,10 @@ export class AppComponent {
   }
 
   sendGetRequest(event: Event) {
-    this.http.get(this.backendUrl).toPromise().then((res: Response) => {
-      alert(res.json());
+    this.http.get(this.backendUrl + '/keycloak-token').subscribe((res: ResponseTokenDto) => {
+      this.getRequestToken = res.token;
     });
   }
 }
 
-class RequestTokenDto {
-  issuer: any = '';
-  subject: any = '';
-  datetime: any = '';
-  keyValuePairs: any = [];
-}
+
